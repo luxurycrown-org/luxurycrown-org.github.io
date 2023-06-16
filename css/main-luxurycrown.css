@@ -1054,3 +1054,8 @@ p {
             font-size: 1.3rem;
         }
 }
+.disabled-div {
+    pointer-events: none;
+    filter: grayscale(100%);
+    opacity: 0.2;
+  }
