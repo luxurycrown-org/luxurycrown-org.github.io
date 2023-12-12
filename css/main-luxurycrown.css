@@ -839,7 +839,10 @@ p {
 
 @media only screen and (min-width: 768px) {
     .intro__content {
-        padding: 6rem 0;
+        padding-top: 6rem;
+    }
+    .mt-6{
+        margin-top: 6rem;
     }
 }
 
@@ -849,7 +852,7 @@ p {
 }
 
     .headline img {
-        width: auto;
+        width: 150px;
         margin: 0 auto;
     }
 
