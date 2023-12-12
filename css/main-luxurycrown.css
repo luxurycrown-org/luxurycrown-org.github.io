@@ -73,11 +73,12 @@
     }
     .description{
         max-width: 1080px;
-        line-height: 30px;
-        margin-top: 30px;
+        line-height: 40px !important;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+        padding: 30px;
 
     }
 @-webkit-keyframes whiteShadow {
