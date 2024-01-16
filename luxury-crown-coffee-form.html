@@ -152,7 +152,8 @@
                   <li>The investing fee is 15,000 OMR.</li>
                 </ul>
 
-                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does not want to renew the contract
+                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does
+                  not want to renew the contract
                   after the end of the first contract, the company will deduct the costs of company registration and
                   residence issuance from the initial amount and refund the rest to the investor in full.</p>
 
@@ -175,7 +176,8 @@
                   <li>Managing the retail is the investor's responsibility.</li>
                   <li>The investing fee is 11,000 OMR.</li>
                 </ul>
-                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does not want to renew the contract
+                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does
+                  not want to renew the contract
                   after the end of the first contract, the company will deduct the costs of company registration and
                   residence issuance from the initial amount and refund the rest to the investor in full.</p>
 
@@ -201,7 +203,8 @@
                     increasing the amount of investment.</li>
                 </ul>
 
-                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does not want to renew the contract
+                <p class="mt-20"><strong class="text-red">IMPORTANT NOTE:</strong> If, for any reason, the investor does
+                  not want to renew the contract
                   after the end of the first contract, the company will deduct the costs of company registration and
                   residence issuance from the initial amount and refund the rest to the investor in full.</p>
 
@@ -220,8 +223,9 @@
                 <div class="inner__container">
                   <div class="content-block">
                     <span class="section__subtitle">Full-service Store and Office Design Solutions</span>
-               
-                    <p class="section__text">Feel free to adjust the wording to better fit your branding and communication style.
+
+                    <p class="section__text">Feel free to adjust the wording to better fit your branding and
+                      communication style.
                     </p>
                   </div>
                 </div>
@@ -355,7 +359,8 @@
             <div class="inner__container">
               <div class="content-block">
                 <h3>Apply for Representation!</h3>
-                <p class="block__text">We only need partial information from you here. We will contact you to gather complete details.
+                <p class="block__text">We only need partial information from you here. We will contact you to gather
+                  complete details.
                 </p>
               </div>
               <div class="content-block grid-block">
@@ -371,11 +376,8 @@
                   <!-- Contact Form Reply Group End -->
 
                   <!-- Contact Form Start -->
-                  <form class="form form-light contact-form" id="contact-form">
-                    <!-- Hidden Required Fields -->
-                    <input type="hidden" name="project_name" value="Marvio - Coming Soon &amp; Portfolio Template">
-                    <input type="hidden" name="admin_email" value="support@mixdesign.club">
-                    <input type="hidden" name="form_subject" value="Contact Form Message">
+                  <form name="submit-to-google-sheet" method="POST" class="form form-light contact-form">
+
                     <!-- END Hidden Required Fields-->
                     <div class="container-fluid px-4">
                       <div class="row gx-5">
@@ -386,7 +388,7 @@
                           <input class="block-rounded-s" type="text" name="Company" placeholder="Company Name">
                         </div>
                         <div class="col-12 col-md-6">
-                          <input class="block-rounded-s" type="email" name="E-mail" placeholder="Email Adress*"
+                          <input class="block-rounded-s" type="email" name="Email" placeholder="Email Adress*"
                             required="">
                         </div>
                         <div class="col-12 col-md-6">
@@ -407,6 +409,15 @@
                       </div>
                     </div>
                   </form>
+
+                  <div class="loading js-loading is-hidden">
+                    <div class="loading-spinner">
+                      <img src="/img/loading.svg" alt="">
+                    </div>
+                  </div>
+
+                  <p class="js-success-message is-hidden success-text">Success!</p>
+                  <p class="js-error-message is-hidden error">Error!</p>
                   <!-- Contact Form End  -->
 
                 </div>
@@ -494,6 +505,42 @@
   <script src="js/libs.min.js"></script>
   <script src="js/gallery-init.js"></script>
   <script src="js/custom.js"></script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzHZ3m1FOXv7hAffoF8btOh4Un2rfaRTtDt50yykts9KcmX5t1cetAtf-Hd1TD71MMAUg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const loading = document.querySelector('.js-loading')
+    const successMessage = document.querySelector('.js-success-message')
+    const errorMessage = document.querySelector('.js-error-message')
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      showLoadingIndicator()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => showSuccessMessage(response))
+        .catch(error => showErrorMessage(error))
+    })
+
+    function showLoadingIndicator() {
+      loading.classList.remove('is-hidden')
+    }
+
+    function showSuccessMessage(response) {
+      console.log('Success!', response)
+      setTimeout(() => {
+        successMessage.classList.remove('is-hidden')
+        loading.classList.add('is-hidden')
+      }, 500)
+    }
+
+    function showErrorMessage(error) {
+      console.error('Error!', error.message)
+      setTimeout(() => {
+        errorMessage.classList.remove('is-hidden')
+        loading.classList.add('is-hidden')
+      }, 500)
+    }
+  </script>
 </body>
 
 </html>
