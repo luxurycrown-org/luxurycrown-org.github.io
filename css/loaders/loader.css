@@ -32,8 +32,8 @@
 
 .loader__circle {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 240px;
+  height: 240px;
   background: #f987d6;
   background: -webkit-gradient(linear, left top, right top, from(#6a47af), to(#f987d6));
   background: -moz-linear-gradient(left, #6a47af 0%, #f987d6 100%);

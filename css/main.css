@@ -46,6 +46,9 @@
     background-image: url("../img/lc.jpg");
 }
 
+.media-image-coffe-form {
+    background-image: url("../img/coffee.jpg");
+}
 .showreel-image-1 {
     background-image: url("https://dummyimage.com/1400x700/636363/ffffff");
 }
@@ -4114,4 +4117,13 @@ form {
 
 .pswp__button--close {
     background-color: #f987d6;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.text-red{
+    color: red;
 }
